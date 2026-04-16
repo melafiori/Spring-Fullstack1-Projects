@@ -34,7 +34,7 @@ public class MedicoServiceImpl implements MedicoService {
     @Override
     public Medico findByRun(String run) {
         return this.medicoRepository.findByRun(run).orElseThrow(
-                ()  -> new MedicoException("Medico no Encontrado")
+                () -> new MedicoException("Medico no Encontrado")
         );
     }
 
@@ -42,7 +42,7 @@ public class MedicoServiceImpl implements MedicoService {
     @Override
     public Medico save(Medico medico) {
         // Si el run del medico ESTA PRESENTE, throw exception, si no, se guarda
-        if(this.medicoRepository.findByRun(medico.getRun()).isPresent()){
+        if (this.medicoRepository.findByRun(medico.getRun()).isPresent()) {
             throw new MedicoException("Médico Ya Existe");
         }
         return this.medicoRepository.save(medico);
