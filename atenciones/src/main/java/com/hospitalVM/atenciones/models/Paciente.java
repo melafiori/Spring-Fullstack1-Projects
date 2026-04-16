@@ -51,6 +51,7 @@ public class Paciente {
     @Email
     @NotBlank(message = "El campo Correo Electronico no puede estar vacío.")
     @Column(nullable = false, unique = true)
+    private String correo;
 
     @Embedded
     Audit audit = new Audit();

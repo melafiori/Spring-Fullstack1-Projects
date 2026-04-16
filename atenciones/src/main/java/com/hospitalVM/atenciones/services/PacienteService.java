@@ -7,11 +7,17 @@ import java.util.List;
 public interface PacienteService {
 
     List<Paciente> findAll();
-    Paciente findById();
+
+    Paciente findById(Long id);
+
     Paciente findByRut(String rut);
+
     Paciente findByCorreo(String correo);
+
     Paciente save(Paciente paciente);
+
     void deleteById(Long id);
+
     Paciente updateById(Long id, Paciente paciente);
 
 
