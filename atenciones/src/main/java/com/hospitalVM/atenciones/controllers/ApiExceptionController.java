@@ -1,5 +1,6 @@
 package com.hospitalVM.atenciones.controllers;
 
+import com.hospitalVM.atenciones.exceptions.AtencionException;
 import com.hospitalVM.atenciones.exceptions.MedicoException;
 import com.hospitalVM.atenciones.exceptions.PacienteException;
 import org.springframework.http.HttpStatus;
@@ -35,6 +36,13 @@ public class ApiExceptionController {
         HashMap<String, String> errors = new HashMap<>();
         errors.put("error", ex.getMessage());
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(errors);
+    }
+
+    @ExceptionHandler(AtencionException.class)
+    public ResponseEntity<?> handleAtencionException(AtencionException ex) {
+        HashMap<String, String> errors = new HashMap<>();
+        errors.put("error", ex.getMessage());
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errors);
     }
 
     @ExceptionHandler(Exception.class)

@@ -11,6 +11,8 @@ import lombok.Setter;
 import lombok.ToString;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "pacientes")
@@ -29,8 +31,8 @@ public class Paciente {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_paciente")
-    private Long idPaciente;
+    @Column(name = "paciente_id")
+    private Long pacienteId;
 
     @NotBlank(message = "El rut no puede estar vacío.")
     @Column(unique = true, nullable = false)
@@ -56,6 +58,9 @@ public class Paciente {
 
     @Embedded
     Audit audit = new Audit();
+
+    @OneToMany(mappedBy = "paciente", cascade = CascadeType.ALL)
+    private List<Atencion> atenciones = new ArrayList<>();
 
 
 }
