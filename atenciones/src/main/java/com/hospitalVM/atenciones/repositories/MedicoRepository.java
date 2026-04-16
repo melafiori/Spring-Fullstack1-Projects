@@ -10,4 +10,5 @@ import java.util.Optional;
 public interface MedicoRepository extends JpaRepository<Medico, Long> {
 
     Optional<Medico> findByRun(String run);
+
 }
