@@ -18,6 +18,7 @@ import lombok.ToString;
 @NoArgsConstructor
 public class Medico {
     @Id
+    // IDENTITY de Id (obviamente)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "medico_id")
     private Long medicoId;

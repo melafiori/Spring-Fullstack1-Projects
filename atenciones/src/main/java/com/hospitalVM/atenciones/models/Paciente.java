@@ -39,7 +39,7 @@ public class Paciente {
     @Pattern(regexp = "\\d{1,8}-[\\dKk]", message = "El formato tiene que ser 12345678-9")
     private String rut;
 
-    @NotBlank(message = "El campo nobres no puede estar vacío.")
+    @NotBlank(message = "El campo nombres no puede estar vacío.")
     @Column(nullable = false)
     private String nombres;
 
